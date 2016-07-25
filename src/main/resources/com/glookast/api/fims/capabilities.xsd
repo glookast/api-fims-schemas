@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:tns="http://fims.api.glookast.com"
+           xmlns:bms="http://base.fims.tv"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1.0"
+           targetNamespace="http://fims.api.glookast.com">
+    <xs:import namespace="http://base.fims.tv" schemaLocation="../../../../tv/fims/baseMediaService.xsd"></xs:import>
+
+    <xs:element name="getAudioFormats" type="tns:getAudioFormats"></xs:element>
+    <xs:element name="getAudioFormatsResponse" type="tns:getAudioFormatsResponse"></xs:element>
+    <xs:element name="getContainerFormats" type="tns:getContainerFormats"></xs:element>
+    <xs:element name="getContainerFormatsResponse" type="tns:getContainerFormatsResponse"></xs:element>
+    <xs:element name="getDestinations" type="tns:getDestinations"></xs:element>
+    <xs:element name="getDestinationsResponse" type="tns:getDestinationsResponse"></xs:element>
+    <xs:element name="getVideoFormats" type="tns:getVideoFormats"></xs:element>
+    <xs:element name="getVideoFormatsResponse" type="tns:getVideoFormatsResponse"></xs:element>
+
+    <xs:simpleType name="CapabilitiesFilter">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ALL"/>
+            <xs:enumeration value="AVID"/>
+            <xs:enumeration value="GENERIC"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="getContainerFormats">
+        <xs:sequence>
+            <xs:element name="filter" type="tns:CapabilitiesFilter" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="onlyLicensed" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="getContainerFormatsResponse">
+        <xs:sequence>
+            <xs:element name="return" type="bms:ContainerFormatType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="getVideoFormats">
+        <xs:sequence>
+            <xs:element name="filter" type="tns:CapabilitiesFilter" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="onlyLicensed" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="getVideoFormatsResponse">
+        <xs:sequence>
+            <xs:element name="return" type="bms:VideoFormatType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="getAudioFormats">
+        <xs:sequence>
+            <xs:element name="filter" type="tns:CapabilitiesFilter" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="onlyLicensed" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="getAudioFormatsResponse">
+        <xs:sequence>
+            <xs:element name="return" type="bms:AudioFormatType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="getDestinations">
+        <xs:sequence>
+            <xs:element name="filter" type="tns:CapabilitiesFilter" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="getDestinationsResponse">
+        <xs:sequence>
+            <xs:element name="return" type="bms:TransferAtomType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:tns="http://fims.api.glookast.com"
+             name="Capabilities"
+             targetNamespace="http://fims.api.glookast.com">
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="../../../../tv/fims/xml.xsd"></xsd:import>
+        </xsd:schema>
+        <xsd:schema>
+            <xsd:import namespace="http://description.fims.tv" schemaLocation="../../../../tv/fims/description.xsd"></xsd:import>
+        </xsd:schema>
+        <xsd:schema>
+            <xsd:import namespace="http://capturemedia.fims.tv" schemaLocation="../../../../tv/fims/captureMedia.xsd"></xsd:import>
+        </xsd:schema>
+        <xsd:schema>
+            <xsd:import namespace="http://baseTime.fims.tv" schemaLocation="../../../../tv/fims/baseTime.xsd"></xsd:import>
+        </xsd:schema>
+        <xsd:schema>
+            <xsd:import namespace="http://base.fims.tv" schemaLocation="../../../../tv/fims/baseMediaService.xsd"></xsd:import>
+        </xsd:schema>
+        <xsd:schema>
+            <xsd:import namespace="http://fims.api.glookast.com" schemaLocation="capabilities.xsd"></xsd:import>
+        </xsd:schema>
+    </types>
+    <message name="getContainerFormats">
+        <part name="parameters" element="tns:getContainerFormats"></part>
+    </message>
+    <message name="getContainerFormatsResponse">
+        <part name="parameters" element="tns:getContainerFormatsResponse"></part>
+    </message>
+    <message name="getVideoFormats">
+        <part name="parameters" element="tns:getVideoFormats"></part>
+    </message>
+    <message name="getVideoFormatsResponse">
+        <part name="parameters" element="tns:getVideoFormatsResponse"></part>
+    </message>
+    <message name="getAudioFormats">
+        <part name="parameters" element="tns:getAudioFormats"></part>
+    </message>
+    <message name="getAudioFormatsResponse">
+        <part name="parameters" element="tns:getAudioFormatsResponse"></part>
+    </message>
+    <message name="getDestinations">
+        <part name="parameters" element="tns:getDestinations"></part>
+    </message>
+    <message name="getDestinationsResponse">
+        <part name="parameters" element="tns:getDestinationsResponse"></part>
+    </message>
+    <portType name="Capabilities">
+        <operation name="getContainerFormats">
+            <input message="tns:getContainerFormats"></input>
+            <output message="tns:getContainerFormatsResponse"></output>
+        </operation>
+        <operation name="getVideoFormats">
+            <input message="tns:getVideoFormats"></input>
+            <output message="tns:getVideoFormatsResponse"></output>
+        </operation>
+        <operation name="getAudioFormats">
+            <input message="tns:getAudioFormats"></input>
+            <output message="tns:getAudioFormatsResponse"></output>
+        </operation>
+        <operation name="getDestinations">
+            <input message="tns:getDestinations"></input>
+            <output message="tns:getDestinationsResponse"></output>
+        </operation>
+    </portType>
+    <binding name="CapabilitiesBinding" type="tns:Capabilities">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
+        <operation name="getContainerFormats">
+            <soap:operation soapAction="http://fims.api.glookast.com/getContainerFormats"></soap:operation>
+            <input>
+                <soap:body use="literal"></soap:body>
+            </input>
+            <output>
+                <soap:body use="literal"></soap:body>
+            </output>
+        </operation>
+        <operation name="getVideoFormats">
+            <soap:operation soapAction="http://fims.api.glookast.com/getVideoFormats"></soap:operation>
+            <input>
+                <soap:body use="literal"></soap:body>
+            </input>
+            <output>
+                <soap:body use="literal"></soap:body>
+            </output>
+        </operation>
+        <operation name="getAudioFormats">
+            <soap:operation soapAction="http://fims.api.glookast.com/getAudioFormats"></soap:operation>
+            <input>
+                <soap:body use="literal"></soap:body>
+            </input>
+            <output>
+                <soap:body use="literal"></soap:body>
+            </output>
+        </operation>
+        <operation name="getDestinations">
+            <soap:operation soapAction="http://fims.api.glookast.com/getDestinations"></soap:operation>
+            <input>
+                <soap:body use="literal"></soap:body>
+            </input>
+            <output>
+                <soap:body use="literal"></soap:body>
+            </output>
+        </operation>
+    </binding>
+    <service name="CapabilitiesService">
+        <port name="CapabilitiesPort" binding="tns:CapabilitiesBinding">
+            <soap:address location="http://server/CaptureMediaCapabilitiesPort"></soap:address>
+        </port>
+    </service>
+</definitions>
