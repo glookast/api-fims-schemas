@@ -46,7 +46,7 @@ uploadArchives {
             }
 
             pom.project {
-                name "API FIMS schemas"
+                name "api-fims-schemas"
                 packaging "jar"
                 // optionally artifactId can be defined here 
                 description "XML schemas and WSDLs for that define the FIMS API on Glookast Products"
